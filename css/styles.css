@@ -26,17 +26,26 @@ html {
     justify-content:space-between;
 }
 
-.p1-image, .p2-image {
+.p1-character, .p2-character {
     display: flex;
     align-items: center;
     height: 33%;
 }
 
-.p1-image, .p2-image, .p1-health, .p2-health, .attack-image, .grid-item {
+.p1-character, .p2-character, .p1-health, .p2-health, .attack-image, .grid-item {
     display: flex;
     border: solid black 2px;
     background-color: white;
     width: 100%;
+}
+
+.p1-spacer, .p2-spacer {
+    width: 75%;
+    border: solid black 2px;
+}
+
+.p1-image, .p2-image {
+    width: 25%;
 }
 
 /*Left area specific*/
@@ -50,8 +59,12 @@ html {
     justify-content: flex-start;
 }
 
-.p1-image {
+.p1-character {
     justify-content: flex-end;
+}
+
+.p2-character {
+    transform: scaleX(-1) /*flips image horizontally*/
 }
 
 /*Middle area specific*/
@@ -81,6 +94,6 @@ html {
   } 
 
   /*Right area specific*/
-.p2-image {
+  .p2-image {
     justify-content: flex-start;
 }
