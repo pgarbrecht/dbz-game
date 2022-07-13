@@ -32,7 +32,7 @@ html {
     height: 33%;
 }
 
-.p1-character, .p2-character, .p1-health, .p2-health, .attack-image, .grid-item {
+.p1-character, .p2-character, .p1-health, .p2-health, .attack-image, .prompt, .grid-item {
     display: flex;
     border: solid black 2px;
     background-color: white;
@@ -70,8 +70,12 @@ html {
 /*Middle area specific*/
 .middle-area {
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
     flex-direction: column;
+}
+
+.prompt {
+    justify-content: center;
 }
 
 .attack-image {
