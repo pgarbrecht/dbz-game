@@ -5,3 +5,82 @@ html {
     -o-background-size: cover;
     background-size: cover;
   }
+
+/*Overall container*/
+.game-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*Three main areas*/
+.p1-area, .middle-area, .p2-area {
+    border: solid black 2px;
+    width: 33vw;
+    height: 100vh;
+}
+
+.p1-area, .p2-area {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.p1-image, .p2-image {
+    display: flex;
+    align-items: center;
+    height: 33%;
+}
+
+.p1-image, .p2-image, .p1-health, .p2-health, .attack-image, .grid-item {
+    display: flex;
+    border: solid black 2px;
+    background-color: white;
+    width: 100%;
+}
+
+/*Left area specific*/
+.p1-area {
+    align-items: flex-end;
+} 
+
+.p1-health {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.p1-image {
+    justify-content: flex-end;
+}
+
+/*Middle area specific*/
+.middle-area {
+    display: flex;
+    justify-content:space-around;
+    flex-direction: column;
+}
+
+.attack-image {
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    height: 50%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+.grid-item {
+      justify-content: center;
+      align-items: center;
+  } 
+
+  /*Right area specific*/
+.p2-image {
+    justify-content: flex-start;
+}
