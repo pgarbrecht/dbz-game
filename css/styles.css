@@ -11,18 +11,19 @@ html {
 .popup {
     position: fixed;
     display: inline-block;
-    margin-left: 40%;
-    margin-top: 550px;
+    margin-left: 35%;
+    margin-top: 575px;
   }
   
   /* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
-    width: 360px;
+    width: 425px;
     background-color: orange;
-    color: #fff;
+    color: black;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 10px;
+    border: black solid 5px;
     padding: 8px 0;
     position: absolute;
     z-index: 1;
@@ -46,6 +47,7 @@ html {
 
 .instructions {
     padding: 0px 10px;
+    font-weight: 500;
 }
 
 .choose-character {
@@ -54,6 +56,7 @@ html {
     grid-column-start: 1;
     grid-column-end: 2;
     width: 99%;
+    margin: auto;
 }
 
 .character-item {
@@ -76,6 +79,10 @@ html {
 
 #trunks {
     background-image: url(../imgs/welcome/trunks.png);
+}
+
+#gohan, #trunks {
+    border-bottom: black solid 6px;
 }
 
 /*OVERALL CONTAINER*/
