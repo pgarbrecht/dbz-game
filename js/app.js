@@ -36,19 +36,32 @@ class Player {
     }
 }
 
-//Onclick function to create new object from class when character chosen, and remove the pop up once 2 players created, and show their images in the stadium, their health and character names up top, and prompt 1
+//variables to help keep track of players
 let charactersOnscreen = 0;
+let players = [];
+let p1 = players[0];
+let p2 = players[1];
 
+//Create new object from class when character chosen
 function createPlayer(character) {
     const p = new Player(character); 
-    console.log(p);
-    //insert code here to show char on screen
+    players.push(p);
     charactersOnscreen += 1;
     removeWelcome();
 }
 
+//Remove the pop up once 2 players created
 function removeWelcome() {
     if (charactersOnscreen > 1) {
         popup.style.display = "none";
+        startGame();
     }
+}
+
+// show their images in the stadium, their health and character names up top, and prompt 1
+function startGame() {
+    console.log(players[0]);
+    console.log(players[1]); //these are accessible
+    console.log(p1); //these aren't accessible for some reason
+    console.log(p2);
 }
