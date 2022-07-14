@@ -1,6 +1,7 @@
 // When the page loads, open the welcome popup
+var popup = document.getElementById("welcomePopup"); 
 window.onload = function welcome() {
-    var popup = document.getElementById("welcomePopup");  popup.classList.toggle("show");
+     popup.classList.toggle("show");
   };
 
 //Variables and event listeners for character selection
@@ -25,19 +26,29 @@ trunksChoice.onclick = function() {
 //Class for characters
 class Player {
     //static property to remember # of players created
-    static lastPlayer = 0;
+    static lastPlayerNumber = 0;
 
-    constructor(character,player,hp,ki) {
+    constructor(character,playerNumber,hp,ki) {
         this.character = character || ""
-        this.player = ++Player.lastPlayer
+        this.playerNumber = ++Player.lastPlayerNumber
         this.hp = hp || 100
         this.ki = ki || 0
     }
 }
 
 //Onclick function to create new object from class when character chosen, and remove the pop up once 2 players created, and show their images in the stadium, their health and character names up top, and prompt 1
+let charactersOnscreen = 0;
+
 function createPlayer(character) {
-    //add while statement here for 1 and 2 players in existence -- 2 should then remove pop up
-    console.log(character); //replace with object creation
+    const p = new Player(character); 
+    console.log(p);
+    //insert code here to show char on screen
+    charactersOnscreen += 1;
+    removeWelcome();
 }
 
+function removeWelcome() {
+    if (charactersOnscreen > 1) {
+        popup.style.display = "none";
+    }
+}

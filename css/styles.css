@@ -15,7 +15,7 @@ html {
     margin-top: 575px;
   }
   
-  /* The actual popup (appears on top) */
+/* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
     width: 425px;
@@ -31,15 +31,15 @@ html {
     left: 50%;
     margin-left: -80px;
 }
-  
-  /* Toggle this class to hide and show the popup) */
+
+/* Toggle this class to hide and show the popup) */
 .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 5s;
     animation: fadeIn 5s;
 }
   
-  /* Add animation (fade in the popup) */
+/* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
     0% {opacity: 0}
     100% {opacity: 1}
