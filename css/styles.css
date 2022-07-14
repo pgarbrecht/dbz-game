@@ -6,6 +6,45 @@ html {
     background-size: cover;
   }
 
+/*Welcome screen*/
+/* Popup container */
+.popup {
+    position: fixed;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 50%;
+    margin-top: 50%;
+  }
+  
+  /* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+  
+  /* Toggle this class to hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 5s;
+    animation: fadeIn 5s
+}
+  
+  /* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
 /*Overall container*/
 .game-container {
     display: flex;
@@ -32,7 +71,7 @@ html {
     height: 33%;
 }
 
-.p1-character, .p2-character, .p1-health, .p2-health, .attack-image, .attack-spacer, .prompt, .grid-item {
+.welcome-modal, .p1-character, .p2-character, .p1-health, .p2-health, .attack-image, .attack-spacer, .prompt, .grid-item {
     display: flex;
     border: solid black 2px;
     background-color: white;
