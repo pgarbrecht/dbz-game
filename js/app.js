@@ -11,16 +11,16 @@ const gohanChoice = document.querySelector("#gohan");
 const trunksChoice = document.querySelector("#trunks");
 
 gokuChoice.onclick = function() {
-    createPlayer("Goku");
+    createPlayer("Goku",["/imgs/goku/neutral.png","/imgs/goku/attack.png","/imgs/goku/fallen.png"]);
 }
 vegetaChoice.onclick = function() {
-    createPlayer("Vegeta");
+    createPlayer("Vegeta",["/imgs/vegeta/neutral.png","/imgs/vegeta/attack.png","/imgs/vegeta/fallen.png"]);
 }
 gohanChoice.onclick = function() {
-    createPlayer("Gohan");
+    createPlayer("Gohan",["/imgs/gohan/neutral.png","/imgs/gohan/attack.png","/imgs/gohan/fallen.png"]);
 }
 trunksChoice.onclick = function() {
-    createPlayer("Trunks");
+    createPlayer("Trunks",["/imgs/trunks/neutral.png","/imgs/trunks/attack.png","/imgs/trunks/fallen.png"]);
 }
 
 //Class for characters
@@ -28,8 +28,9 @@ class Player {
     //static property to remember # of players created
     static lastPlayerNumber = 0;
 
-    constructor(character,playerNumber,hp,ki) {
+    constructor(character,images,playerNumber,hp,ki) {
         this.character = character || ""
+        this.images = images || []
         this.playerNumber = ++Player.lastPlayerNumber
         this.hp = hp || 100
         this.ki = ki || 0
@@ -43,8 +44,8 @@ let p1;
 let p2;
 
 //Create new object from class when character chosen
-function createPlayer(character) {
-    const p = new Player(character); 
+function createPlayer(character,images) {
+    const p = new Player(character,images); 
     players.push(p);
     charactersOnscreen += 1;
     removeWelcome();
