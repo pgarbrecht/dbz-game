@@ -36,11 +36,11 @@ class Player {
     }
 }
 
-//variables to help keep track of players
+//variables to help keep track of and assign players
 let charactersOnscreen = 0;
 let players = [];
-let p1 = players[0];
-let p2 = players[1];
+let p1;
+let p2;
 
 //Create new object from class when character chosen
 function createPlayer(character) {
@@ -58,10 +58,12 @@ function removeWelcome() {
     }
 }
 
-// show their images in the stadium, their health and character names up top, and prompt 1
 function startGame() {
-    console.log(players[0]);
-    console.log(players[1]); //these are accessible
-    console.log(p1); //these aren't accessible for some reason
+    // assign objects to player variables
+    p1 = players[0];
+    p2 = players[1];
+    console.log(p1);
     console.log(p2);
+    // show their images, health character names, prompt 1
+    
 }
