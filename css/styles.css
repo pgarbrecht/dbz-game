@@ -6,21 +6,20 @@ html {
     background-size: cover;
   }
 
-/*Welcome screen*/
+/*WELCOME SCREEN*/
 /* Popup container */
 .popup {
     position: fixed;
     display: inline-block;
-    cursor: pointer;
-    margin-left: 50%;
-    margin-top: 50%;
+    margin-left: 40%;
+    margin-top: 550px;
   }
   
   /* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
-    width: 160px;
-    background-color: #555;
+    width: 360px;
+    background-color: orange;
     color: #fff;
     text-align: center;
     border-radius: 6px;
@@ -36,7 +35,7 @@ html {
 .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 5s;
-    animation: fadeIn 5s
+    animation: fadeIn 5s;
 }
   
   /* Add animation (fade in the popup) */
@@ -45,14 +44,48 @@ html {
     100% {opacity: 1}
 }
 
-/*Overall container*/
+.instructions {
+    padding: 0px 10px;
+}
+
+.choose-character {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 99%;
+}
+
+.character-item {
+    height: 150px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#goku {
+    background-image: url(../imgs/welcome/goku.png);
+}
+
+#vegeta {
+    background-image: url(../imgs/welcome/vegeta.png);
+}
+
+#gohan {
+    background-image: url(../imgs/welcome/gohan.png);
+}
+
+#trunks {
+    background-image: url(../imgs/welcome/trunks.png);
+}
+
+/*OVERALL CONTAINER*/
 .game-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-/*Three main areas*/
+/*THREE MAIN AREAS*/
 .p1-area, .middle-area, .p2-area {
     border: solid black 2px;
     width: 33vw;
@@ -87,7 +120,7 @@ html {
     width: 25%;
 }
 
-/*Left area specific*/
+/*LEFT SPECIFIC*/
 .p1-area {
     align-items: flex-end;
 } 
@@ -106,7 +139,7 @@ html {
     transform: scaleX(-1) /*flips image horizontally*/
 }
 
-/*Middle area specific*/
+/*MIDDLE SPECIFIC*/
 .middle-area {
     display: flex;
     justify-content:space-between;
@@ -150,7 +183,7 @@ html {
       align-items: center;
   } 
 
-  /*Right area specific*/
+  /*RIGHT SPECIFIC*/
   .p2-image {
     justify-content: flex-start;
 }
