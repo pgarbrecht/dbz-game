@@ -59,6 +59,10 @@ function removeWelcome() {
     }
 }
 
+//elements needed once game starts
+let p1Image = document.querySelector(".p1-image");
+let p2Image = document.querySelector(".p2-image");
+
 function startGame() {
     // assign objects to player variables
     p1 = players[0];
@@ -66,5 +70,6 @@ function startGame() {
     console.log(p1);
     console.log(p2);
     // show their images, health character names, prompt 1
-    
+    p1Image.setAttribute("src",p1.images[0]);
+    p2Image.setAttribute("src",p2.images[0])
 }
