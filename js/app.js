@@ -61,7 +61,11 @@ function removeWelcome() {
 
 //elements needed once game starts
 let p1Image = document.querySelector(".p1-image");
+const p1Name = document.querySelector(".p1-name");
+let p1HP = document.querySelector(".p1-hp");
 let p2Image = document.querySelector(".p2-image");
+const p2Name = document.querySelector(".p2-name");
+let p2HP = document.querySelector(".p2-hp");
 
 function startGame() {
     // assign objects to player variables
@@ -71,5 +75,9 @@ function startGame() {
     console.log(p2);
     // show their images, health character names, prompt 1
     p1Image.setAttribute("src",p1.images[0]);
-    p2Image.setAttribute("src",p2.images[0])
+    p1Name.textContent = `P1:${p1.character}`;
+    p1HP.textContent = `${p1.hp}HP`;
+    p2Image.setAttribute("src",p2.images[0]);
+    p2Name.textContent = `P2:${p2.character}`;
+    p2HP.textContent = `${p2.hp}HP`;
 }

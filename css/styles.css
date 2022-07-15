@@ -111,7 +111,7 @@ html {
     height: 33%;
 }
 
-.welcome-modal, .p1-character, .p2-character, .p1-health, .p2-health, .attack-image, .attack-spacer, .prompt, .grid-item {
+.welcome-modal, .p1-character, .p2-character, .p1-info, .p2-info, .attack-image, .attack-spacer, .prompt, .grid-item {
     display: flex;
     border: solid black 2px;
     background-color: white;
@@ -119,12 +119,12 @@ html {
 }
 
 .p1-spacer, .p2-spacer {
-    width: 75%;
+    width: 60%;
     border: solid black 2px;
 }
 
 .p1-image, .p2-image {
-    width: 25%;
+    width: 40%;
 }
 
 /*LEFT SPECIFIC*/
@@ -132,10 +132,10 @@ html {
     align-items: flex-end;
 } 
 
-.p1-health {
+.p1-info {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .p1-character {
