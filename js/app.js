@@ -62,7 +62,6 @@ function removeWelcome() {
 const p1Info = document.querySelector(".p1-info");
 let p1Image = document.querySelector(".p1-image");
 const p1Name = document.querySelector(".p1-name");
-let p1HP = document.querySelector(".p1-hp");
 
 const prompt = document.querySelector(".prompt");
 const promptText = document.querySelector(".prompt-text");
@@ -71,24 +70,22 @@ const attackImage = document.querySelector(".attack-image");
 const p2Info = document.querySelector(".p2-info");
 let p2Image = document.querySelector(".p2-image");
 const p2Name = document.querySelector(".p2-name");
-let p2HP = document.querySelector(".p2-hp");
 
 function startGame() {
     // assign objects to player variables
     p1 = players[0];
     p2 = players[1];
-    // show their images, health character names, prompt 1
+    // show their images, character names, prompt 1
     p1Image.setAttribute("src",p1.images[0]);
     p1Name.textContent = `P1: ${p1.character}`;
-    p1HP.textContent = `${p1.hp} HP`;
+    // p1HP.textContent = `${p1.hp} HP`;
     p2Image.setAttribute("src",p2.images[0]);
     p2Name.textContent = `P2: ${p2.character}`;
-    p2HP.textContent = `${p2.hp} HP`;
+    // p2HP.textContent = `${p2.hp} HP`;
     p1Info.style.backgroundColor = "orange";
     p2Info.style.backgroundColor = "orange";
     prompt.style.backgroundColor = "white";
     promptText.textContent = `15 seconds to collect ki!`;
-    //will add p2turn() and try to wrap both in while loop for p1 and p2 health > 0
     fight();
     setTimeout(() => {
         alert("P1 will go first");
@@ -129,8 +126,6 @@ function fight() {
     }
 
     moveKi();
-
-    // alert("P1 will go first");
 
     function countDown() {
         currentTime--;
@@ -196,7 +191,7 @@ function fight() {
             kiCollected = 0;
             displayTime = 15;
         }
-        //P2 Round 3
+        //P2 Round 3 -- Final turn
         if(currentTime == 0) {
             clearInterval(countDownTimerId);
             clearInterval(timerId);
@@ -204,11 +199,16 @@ function fight() {
                 item.classList.remove('ki')
             });
             p2Attack();
-            setTimeout(() => {
-                alert("P1 will go next");
-            }, "500")
             kiCollected = 0;
-            //if statement for p1.hp>p2.hp show p2 fallen and else if for vice versa
+            if(p1.hp > p2.hp) {
+                promptText.textContent = "P1 is the winner!";
+            }
+            else if(p2.hp > p1.hp) {
+                promptText.textContent = "P2 is the winner!";
+            }
+            else if(p1.hp == p2.hp) {
+                promptText.textContent = "It's a tie!";
+            }
         }
     }
 
@@ -219,7 +219,6 @@ function fight() {
         p2.hp -= kiCollected;
         promptText.textContent = `P2 lost ${kiCollected} hp!`;
         kiCollected = 0;
-        p2HP.textContent = `${p2.hp} HP`;
         //set timeout to stop attack after 3 seconds
         setTimeout(() => {
             p1Image.setAttribute("src",p1.images[0]);
@@ -235,7 +234,6 @@ function fight() {
         p1.hp -= kiCollected;
         promptText.textContent = `P1 lost ${kiCollected} hp!`;
         kiCollected = 0;
-        p1HP.textContent = `${p1.hp} HP`;
         setTimeout(() => {
             p2Image.setAttribute("src",p2.images[0]);
             p1Image.setAttribute("src",p1.images[0]);
