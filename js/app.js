@@ -71,8 +71,6 @@ function startGame() {
     // assign objects to player variables
     p1 = players[0];
     p2 = players[1];
-    console.log(p1);
-    console.log(p2);
     // show their images, health character names, prompt 1
     p1Image.setAttribute("src",p1.images[0]);
     p1Name.textContent = `P1:${p1.character}`;
@@ -80,4 +78,50 @@ function startGame() {
     p2Image.setAttribute("src",p2.images[0]);
     p2Name.textContent = `P2:${p2.character}`;
     p2HP.textContent = `${p2.hp}HP`;
+    kiCollect();
+}
+
+const gridItems = document.querySelectorAll(".grid-item");
+const ki = document.querySelector(".ki");
+let result = 0;
+let hitPosition;
+let currentTime = 30;
+let timerId = null;
+
+function kiCollect() {
+    function randomGridItem() {
+        gridItems.forEach(item => {
+            item.classList.remove('ki')
+        })
+
+        let randomGridItem = gridItems[Math.floor(Math.random() * 9)]
+        randomGridItem.classList.add("ki");
+
+        hitPosition = randomGridItem.id
+    }
+
+    gridItems.forEach(item => {
+        item.addEventListener("mousedown", () => {
+            if (item.id == hitPosition) {
+                result++;
+                hitPosition = null;
+            }
+        })
+    })
+
+    function moveKi() {
+        timerId = setInterval(randomGridItem, 750)
+    }
+
+    moveKi();
+
+    function countDown() {
+        currentTime--;
+        if(currentTime == 0) {
+            clearInterval(countDownTimerId);
+            clearInterval(timerId);
+        }
+    }
+
+    let countDownTimerId = setInterval(countDown, 1000);
 }

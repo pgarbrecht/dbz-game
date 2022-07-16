@@ -111,11 +111,15 @@ html {
     height: 33%;
 }
 
-.welcome-modal, .p1-character, .p2-character, .p1-info, .p2-info, .attack-image, .attack-spacer, .prompt, .grid-item {
+.welcome-modal, .p1-character, .p2-character, .p1-info, .p2-info, .attack-image, .attack-spacer, .prompt  {
     display: flex;
     border: solid black 2px;
     background-color: white;
     width: 100%;
+}
+
+.grid-item {
+    border: solid black 2px;
 }
 
 .p1-spacer, .p2-spacer {
@@ -189,6 +193,11 @@ html {
       justify-content: center;
       align-items: center;
   } 
+
+.ki {
+    background-image: url("/imgs/ki.png");
+    background-size: cover;
+}
 
   /*RIGHT SPECIFIC*/
   .p2-image {
