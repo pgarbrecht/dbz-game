@@ -95,6 +95,7 @@ function startGame() {
     promptText.textContent = `P1 has 15 seconds to collect ki!`;
     //will add p2turn() and try to wrap both in while loop for p1 and p2 health > 0
     p1Turn();
+    p2Turn();
 }
 
 const gridItems = document.querySelectorAll(".grid-item");
@@ -148,14 +149,16 @@ function p1Turn() {
     function p1Attack() {
         p1Image.setAttribute("src",p1.images[1]);
         attackImage.setAttribute("src","/imgs/p1blast.png");
+        p2Image.setAttribute("src","/imgs/explosion.png");
         p2.hp -= p1.ki;
         promptText.textContent = `P2 lost ${p1.ki} hp!`;
         p1.ki = 0;
         p1Ki.textContent = `${p1.ki} Ki`;
         p2HP.textContent = `${p2.hp} HP`;
-        //add set timeout to wait 5 seconds to allow to see updates on screen
+        //set timeout to stop attack after 3 seconds
         setTimeout(() => {
             p1Image.setAttribute("src",p1.images[0]);
+            p2Image.setAttribute("src",p2.images[0]);
             attackImage.setAttribute("src","/imgs/transparent.png");
           }, "3000")
     }
