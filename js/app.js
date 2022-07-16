@@ -68,6 +68,7 @@ let p1Ki = document.querySelector(".p1-ki");
 
 const prompt = document.querySelector(".prompt");
 const promptText = document.querySelector(".prompt-text");
+const attackImage = document.querySelector(".attack-image");
 
 const p2Info = document.querySelector(".p2-info");
 let p2Image = document.querySelector(".p2-image");
@@ -92,7 +93,8 @@ function startGame() {
     p2Info.style.backgroundColor = "orange";
     prompt.style.backgroundColor = "white";
     promptText.textContent = `P1 has 15 seconds to collect ki!`;
-    kiCollect();
+    //will likely add p2turn() and wrap both in while loop for p1 and p2 health > 0
+    p1Turn();
 }
 
 const gridItems = document.querySelectorAll(".grid-item");
@@ -102,7 +104,7 @@ let hitPosition;
 let currentTime = 15;
 let timerId = null;
 
-function kiCollect() {
+function p1Turn() {
     function randomGridItem() {
         gridItems.forEach(item => {
             item.classList.remove('ki')
@@ -139,7 +141,13 @@ function kiCollect() {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             })
+            p1Attack();
         }
+    }
+
+    function p1Attack() {
+        p1Image.setAttribute("src",p1.images[1]);
+        attackImage.setAttribute("src","/imgs/p1blast.png");
     }
 
     let countDownTimerId = setInterval(countDown, 1000);
