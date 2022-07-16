@@ -78,10 +78,8 @@ function startGame() {
     // show their images, character names, prompt 1
     p1Image.setAttribute("src",p1.images[0]);
     p1Name.textContent = `P1: ${p1.character}`;
-    // p1HP.textContent = `${p1.hp} HP`;
     p2Image.setAttribute("src",p2.images[0]);
     p2Name.textContent = `P2: ${p2.character}`;
-    // p2HP.textContent = `${p2.hp} HP`;
     p1Info.style.backgroundColor = "orange";
     p2Info.style.backgroundColor = "orange";
     prompt.style.backgroundColor = "white";
@@ -122,7 +120,7 @@ function fight() {
     })
 
     function moveKi() {
-        timerId = setInterval(randomGridItem, 1000)
+        timerId = setInterval(randomGridItem, 750)
     }
 
     moveKi();
@@ -201,13 +199,17 @@ function fight() {
             p2Attack();
             kiCollected = 0;
             if(p1.hp > p2.hp) {
-                promptText.textContent = "P1 is the winner!";
+                promptText.textContent = "P1 is the winner!"; //add restart button
+                p2Image.setAttribute("src",p2.images[2]); //not working yet
             }
             else if(p2.hp > p1.hp) {
-                promptText.textContent = "P2 is the winner!";
+                promptText.textContent = "P2 is the winner!"; //add restart button
+                p1Image.setAttribute("src",p1.images[2]); //not working yet
             }
             else if(p1.hp == p2.hp) {
                 promptText.textContent = "It's a tie!";
+                p1Image.setAttribute("src",p1.images[2]); //add restart button
+                p2Image.setAttribute("src",p2.images[2]); //not working yet
             }
         }
     }
@@ -217,7 +219,6 @@ function fight() {
         attackImage.setAttribute("src","/imgs/p1blast.png");
         p2Image.setAttribute("src","/imgs/explosion.png");
         p2.hp -= kiCollected;
-        promptText.textContent = `P2 lost ${kiCollected} hp!`;
         kiCollected = 0;
         //set timeout to stop attack after 3 seconds
         setTimeout(() => {
@@ -232,7 +233,6 @@ function fight() {
         attackImage.setAttribute("src","/imgs/p2blast.png");
         p1Image.setAttribute("src","/imgs/explosion.png");
         p1.hp -= kiCollected;
-        promptText.textContent = `P1 lost ${kiCollected} hp!`;
         kiCollected = 0;
         setTimeout(() => {
             p2Image.setAttribute("src",p2.images[0]);
