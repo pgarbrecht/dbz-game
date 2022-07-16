@@ -105,6 +105,15 @@ html {
     justify-content:space-between;
 }
 
+.p1-info, .p2-info {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.prompt-text {
+    background-color: white;
+}
+
 .p1-character, .p2-character {
     display: flex;
     align-items: center;
@@ -114,7 +123,6 @@ html {
 .welcome-modal, .p1-character, .p2-character, .p1-info, .p2-info, .attack-image, .attack-spacer, .prompt  {
     display: flex;
     border: solid black 2px;
-    background-color: white;
     width: 100%;
 }
 
@@ -135,12 +143,6 @@ html {
 .p1-area {
     align-items: flex-end;
 } 
-
-.p1-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
 
 .p1-character {
     justify-content: flex-end;
@@ -197,6 +199,7 @@ html {
 .ki {
     background-image: url("/imgs/ki.png");
     background-size: cover;
+    cursor: pointer;
 }
 
   /*RIGHT SPECIFIC*/
