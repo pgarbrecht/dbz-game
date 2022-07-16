@@ -93,7 +93,7 @@ function startGame() {
     p2Info.style.backgroundColor = "orange";
     prompt.style.backgroundColor = "white";
     promptText.textContent = `P1 has 15 seconds to collect ki!`;
-    //will likely add p2turn() and wrap both in while loop for p1 and p2 health > 0
+    //will add p2turn() and try to wrap both in while loop for p1 and p2 health > 0
     p1Turn();
 }
 
@@ -148,7 +148,14 @@ function p1Turn() {
     function p1Attack() {
         p1Image.setAttribute("src",p1.images[1]);
         attackImage.setAttribute("src","/imgs/p1blast.png");
+        p2.hp -= p1.ki;
+        promptText.textContent = `P2 lost ${p1.ki} hp!`;
+        p1.ki = 0;
+        p1Ki.textContent = `${p1.ki} Ki`;
+        p2HP.textContent = `${p2.hp} HP`;
     }
 
     let countDownTimerId = setInterval(countDown, 1000);
 }
+
+//create p2Turn() same as p1Turn() but update values where needed
