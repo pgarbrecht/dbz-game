@@ -153,6 +153,11 @@ function p1Turn() {
         p1.ki = 0;
         p1Ki.textContent = `${p1.ki} Ki`;
         p2HP.textContent = `${p2.hp} HP`;
+        //add set timeout to wait 5 seconds to allow to see updates on screen
+        setTimeout(() => {
+            p1Image.setAttribute("src",p1.images[0]);
+            attackImage.setAttribute("src","/imgs/transparent.png");
+          }, "3000")
     }
 
     let countDownTimerId = setInterval(countDown, 1000);
