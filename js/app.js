@@ -28,12 +28,11 @@ class Player {
     //static property to remember # of players created
     static lastPlayerNumber = 0;
 
-    constructor(character,images,playerNumber,hp,ki) {
+    constructor(character,images,playerNumber,hp) {
         this.character = character || ""
         this.images = images || []
         this.playerNumber = ++Player.lastPlayerNumber
         this.hp = hp || 100
-        this.ki = ki || 0
     }
 }
 
@@ -64,7 +63,6 @@ const p1Info = document.querySelector(".p1-info");
 let p1Image = document.querySelector(".p1-image");
 const p1Name = document.querySelector(".p1-name");
 let p1HP = document.querySelector(".p1-hp");
-let p1Ki = document.querySelector(".p1-ki");
 
 const prompt = document.querySelector(".prompt");
 const promptText = document.querySelector(".prompt-text");
@@ -74,7 +72,6 @@ const p2Info = document.querySelector(".p2-info");
 let p2Image = document.querySelector(".p2-image");
 const p2Name = document.querySelector(".p2-name");
 let p2HP = document.querySelector(".p2-hp");
-let p2Ki = document.querySelector(".p2-ki");
 
 function startGame() {
     // assign objects to player variables
@@ -84,11 +81,9 @@ function startGame() {
     p1Image.setAttribute("src",p1.images[0]);
     p1Name.textContent = `P1: ${p1.character}`;
     p1HP.textContent = `${p1.hp} HP`;
-    p1Ki.textContent = `${p1.ki} Ki`;
     p2Image.setAttribute("src",p2.images[0]);
     p2Name.textContent = `P2: ${p2.character}`;
     p2HP.textContent = `${p2.hp} HP`;
-    p2Ki.textContent = `${p2.ki} Ki`;
     p1Info.style.backgroundColor = "orange";
     p2Info.style.backgroundColor = "orange";
     prompt.style.backgroundColor = "white";
@@ -100,10 +95,11 @@ function startGame() {
 function playRound() {
     const gridItems = document.querySelectorAll(".grid-item");
     const ki = document.querySelector(".ki");
+    let kiCollected = 0; 
     let hitPosition;
     let currentTime = 90;
     let timerId = null;
-    //P1 TURN
+    
     function randomGridItem() {
         gridItems.forEach(item => {
             item.classList.remove('ki')
@@ -118,7 +114,7 @@ function playRound() {
     gridItems.forEach(item => {
         item.addEventListener("mousedown", () => {
             if (item.id == hitPosition) {
-                p1.ki++;
+                kiCollected++;
                 hitPosition = null;
             }
         })
@@ -132,19 +128,20 @@ function playRound() {
 
     function countDown() {
         currentTime--;
-        p1Ki.textContent = `${p1.ki} Ki`;
         promptText.textContent = `P1 has ${currentTime} seconds to collect ki!`;
         if(currentTime == 75) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             })
             p1Attack();
+            kiCollected = 0;
         }
         if(currentTime == 60) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             })
             p2Attack();
+            kiCollected = 0;
         }
         if(currentTime == 0) {
             clearInterval(countDownTimerId);
@@ -160,10 +157,9 @@ function playRound() {
         p1Image.setAttribute("src",p1.images[1]);
         attackImage.setAttribute("src","/imgs/p1blast.png");
         p2Image.setAttribute("src","/imgs/explosion.png");
-        p2.hp -= p1.ki;
-        promptText.textContent = `P2 lost ${p1.ki} hp!`;
-        p1.ki = 0;
-        p1Ki.textContent = `${p1.ki} Ki`;
+        p2.hp -= kiCollected;
+        promptText.textContent = `P2 lost ${kiCollected} hp!`;
+        kiCollected = 0;
         p2HP.textContent = `${p2.hp} HP`;
         //set timeout to stop attack after 3 seconds
         setTimeout(() => {
@@ -177,12 +173,10 @@ function playRound() {
         p2Image.setAttribute("src",p2.images[1]);
         attackImage.setAttribute("src","/imgs/p2blast.png");
         p1Image.setAttribute("src","/imgs/explosion.png");
-        p1.hp -= p1.ki;
-        promptText.textContent = `P1 lost ${p1.ki} hp!`;
-        p2.ki = 0;
-        p2Ki.textContent = `${p2.ki} Ki`;
+        p1.hp -= kiCollected;
+        promptText.textContent = `P1 lost ${kiCollected} hp!`;
+        kiCollected = 0;
         p1HP.textContent = `${p1.hp} HP`;
-        //set timeout to stop attack after 3 seconds
         setTimeout(() => {
             p2Image.setAttribute("src",p2.images[0]);
             p1Image.setAttribute("src",p1.images[0]);
@@ -192,66 +186,4 @@ function playRound() {
 
     let countDownTimerId = setInterval(countDown, 1000);
 
-    //P2 TURN
-
-    // currentTime = 15;
-    // timerId = null;
-    // hitPosition = null;
-    // function randomGridItem() {
-    //     gridItems.forEach(item => {
-    //         item.classList.remove('ki')
-    //     })
-
-    //     let randomGridItem = gridItems[Math.floor(Math.random() * 9)]
-    //     randomGridItem.classList.add("ki");
-
-    //     hitPosition = randomGridItem.id
-    // }
-
-    // gridItems.forEach(item => {
-    //     item.addEventListener("mousedown", () => {
-    //         if (item.id == hitPosition) {
-    //             p1.ki++;
-    //             hitPosition = null;
-    //         }
-    //     })
-    // })
-
-    // function moveKi() {
-    //     timerId = setInterval(randomGridItem, 500)
-    // }
-
-    // moveKi();
-
-    // function countDown() {
-    //     currentTime--;
-    //     p1Ki.textContent = `${p1.ki} Ki`;
-    //     promptText.textContent = `P1 has ${currentTime} seconds to collect ki!`;
-    //     if(currentTime == 0) {
-    //         clearInterval(countDownTimerId);
-    //         clearInterval(timerId);
-    //         gridItems.forEach(item => {
-    //             item.classList.remove('ki')
-    //         })
-    //         p1Attack();
-    //     }
-    // }
-
-    // function p1Attack() {
-    //     p1Image.setAttribute("src",p1.images[1]);
-    //     attackImage.setAttribute("src","/imgs/p1blast.png");
-    //     p2Image.setAttribute("src","/imgs/explosion.png");
-    //     p2.hp -= p1.ki;
-    //     promptText.textContent = `P2 lost ${p1.ki} hp!`;
-    //     p1.ki = 0;
-    //     p1Ki.textContent = `${p1.ki} Ki`;
-    //     p2HP.textContent = `${p2.hp} HP`;
-    //     //set timeout to stop attack after 3 seconds
-    //     setTimeout(() => {
-    //         p1Image.setAttribute("src",p1.images[0]);
-    //         p2Image.setAttribute("src",p2.images[0]);
-    //         attackImage.setAttribute("src","/imgs/transparent.png");
-    //       }, "3000")
-    //       let currentTime = 15;
-    // }
 }
