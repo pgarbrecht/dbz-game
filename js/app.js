@@ -143,7 +143,7 @@ function fight() {
             });
             p1Attack();
             setTimeout(() => {
-            alert("P2 will go next");
+            alert("P2 will go next.");
             }, "500")
             kiCollected = 0;
             displayTime = 15;
@@ -225,7 +225,7 @@ function fight() {
             p1Image.setAttribute("src",p1.images[0]);
             p2Image.setAttribute("src",p2.images[0]);
             attackImage.setAttribute("src","/imgs/transparent.png");
-          }, "1000")
+          }, "400")
     }
 
     function p2Attack() {
@@ -240,7 +240,7 @@ function fight() {
             p2Image.setAttribute("src",p2.images[0]);
             p1Image.setAttribute("src",p1.images[0]);
             attackImage.setAttribute("src","/imgs/transparent.png");
-          }, "2000")
+          }, "400")
     }
 
     let countDownTimerId = setInterval(countDown, 1000);
