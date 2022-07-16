@@ -88,7 +88,7 @@ function startGame() {
     promptText.textContent = `15 seconds to collect ki!`;
     fight();
     setTimeout(() => {
-        alert("P1 will go first");
+        alert("Round 1: P1 will go first.");
         }, "500")
 }
 
@@ -131,7 +131,7 @@ function fight() {
         currentTime--;
         displayTime -= 1
         promptText.textContent = `${displayTime} seconds to collect ki!`;
-        //P1 Round 1
+        //Round 1 P1
         if(currentTime == 75) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
@@ -143,55 +143,55 @@ function fight() {
             kiCollected = 0;
             displayTime = 15;
         }
-        //P2 Round 1
+        //Round 1 P2
         if(currentTime == 60) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             });
             p2Attack();
             setTimeout(() => {
-                alert("P1 will go next");
+                alert("Round 2: P1 will go first.");
             }, "500")
             kiCollected = 0;
             displayTime = 15;
         }
-        //P1 Round 2
+        //Round 2 P1
         if(currentTime == 45) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             });
             p1Attack();
             setTimeout(() => {
-                alert("P2 will go next");
+                alert("P2 will go next.");
             }, "500")
             kiCollected = 0;
             displayTime = 15;
         }
-        //P2 Round 2
+        //Round 2 P2
         if(currentTime == 30) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             });
             p2Attack();
             setTimeout(() => {
-                alert("P1 will go next");
+                alert("FINAL ROUND: P1 will go first.");
             }, "500")
             kiCollected = 0;
             displayTime = 15;
         }
-        //P1 Round 3
+        //Round 3 (Final) P1
         if(currentTime == 15) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             });
             p1Attack();
             setTimeout(() => {
-                alert("P2 will go next");
+                alert("P2 will go next.");
             }, "500")
             kiCollected = 0;
             displayTime = 15;
         }
-        //P2 Round 3 -- Final turn
+        //Round 3 (Final) P2
         if(currentTime == 0) {
             clearInterval(countDownTimerId);
             clearInterval(timerId);
