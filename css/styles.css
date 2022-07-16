@@ -94,7 +94,6 @@ html {
 
 /*THREE MAIN AREAS*/
 .p1-area, .middle-area, .p2-area {
-    border: solid black 2px;
     width: 33vw;
     height: 100vh;
 }
@@ -120,19 +119,13 @@ html {
     height: 33%;
 }
 
-.welcome-modal, .p1-character, .p2-character, .p1-info, .p2-info, .attack-image, .attack-spacer, .prompt  {
+.p1-character, .p2-character, .p1-info, .p2-info, .attack-image, .attack-spacer, .prompt  {
     display: flex;
-    border: solid black 2px;
     width: 100%;
-}
-
-.grid-item {
-    border: solid black 2px;
 }
 
 .p1-spacer, .p2-spacer {
     width: 60%;
-    border: solid black 2px;
 }
 
 .p1-image, .p2-image {
@@ -198,7 +191,8 @@ html {
 
 .ki {
     background-image: url("/imgs/ki.png");
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 
