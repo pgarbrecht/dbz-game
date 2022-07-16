@@ -129,6 +129,7 @@ function playRound() {
     function countDown() {
         currentTime--;
         promptText.textContent = `P1 has ${currentTime} seconds to collect ki!`;
+        //P1 Round 1
         if(currentTime == 75) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
@@ -136,6 +137,7 @@ function playRound() {
             p1Attack();
             kiCollected = 0;
         }
+        //P2 Round 1
         if(currentTime == 60) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
@@ -143,13 +145,39 @@ function playRound() {
             p2Attack();
             kiCollected = 0;
         }
+        //P1 Round 2
+        if(currentTime == 45) {
+            gridItems.forEach(item => {
+                item.classList.remove('ki')
+            })
+            p1Attack();
+            kiCollected = 0;
+        }
+        //P2 Round 2
+        if(currentTime == 30) {
+            gridItems.forEach(item => {
+                item.classList.remove('ki')
+            })
+            p2Attack();
+            kiCollected = 0;
+        }
+        //P1 Round 3
+        if(currentTime == 15) {
+            gridItems.forEach(item => {
+                item.classList.remove('ki')
+            })
+            p1Attack();
+            kiCollected = 0;
+        }
+        //P2 Round 3
         if(currentTime == 0) {
             clearInterval(countDownTimerId);
             clearInterval(timerId);
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             })
-            p1Attack();
+            p2Attack();
+            //if statement for p1.hp>p2.hp show p2 fallen and else if for vice versa
         }
     }
 
