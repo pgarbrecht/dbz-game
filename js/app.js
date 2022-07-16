@@ -87,19 +87,23 @@ function startGame() {
     p1Info.style.backgroundColor = "orange";
     p2Info.style.backgroundColor = "orange";
     prompt.style.backgroundColor = "white";
-    promptText.textContent = `P1 has 15 seconds to collect ki!`;
+    promptText.textContent = `15 seconds to collect ki!`;
     //will add p2turn() and try to wrap both in while loop for p1 and p2 health > 0
-    playRound();
+    fight();
+    setTimeout(() => {
+        alert("P1 will go first");
+        }, "500")
 }
 
-function playRound() {
+function fight() {
     const gridItems = document.querySelectorAll(".grid-item");
     const ki = document.querySelector(".ki");
     let kiCollected = 0; 
     let hitPosition;
     let currentTime = 90;
     let timerId = null;
-    
+    let displayTime = 15;
+  
     function randomGridItem() {
         gridItems.forEach(item => {
             item.classList.remove('ki')
@@ -126,48 +130,71 @@ function playRound() {
 
     moveKi();
 
+    // alert("P1 will go first");
+
     function countDown() {
         currentTime--;
-        promptText.textContent = `P1 has ${currentTime} seconds to collect ki!`;
+        displayTime -= 1
+        promptText.textContent = `${displayTime} seconds to collect ki!`;
         //P1 Round 1
         if(currentTime == 75) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
-            })
+            });
             p1Attack();
+            setTimeout(() => {
+            alert("P2 will go next");
+            }, "500")
             kiCollected = 0;
+            displayTime = 15;
         }
         //P2 Round 1
         if(currentTime == 60) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
-            })
+            });
             p2Attack();
+            setTimeout(() => {
+                alert("P1 will go next");
+            }, "500")
             kiCollected = 0;
+            displayTime = 15;
         }
         //P1 Round 2
         if(currentTime == 45) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
-            })
+            });
             p1Attack();
+            setTimeout(() => {
+                alert("P2 will go next");
+            }, "500")
             kiCollected = 0;
+            displayTime = 15;
         }
         //P2 Round 2
         if(currentTime == 30) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
-            })
+            });
             p2Attack();
+            setTimeout(() => {
+                alert("P1 will go next");
+            }, "500")
             kiCollected = 0;
+            displayTime = 15;
         }
         //P1 Round 3
         if(currentTime == 15) {
             gridItems.forEach(item => {
                 item.classList.remove('ki')
-            })
+            });
             p1Attack();
+            setTimeout(() => {
+                alert("P2 will go next");
+            }, "500")
             kiCollected = 0;
+            displayTime = 15;
         }
         //P2 Round 3
         if(currentTime == 0) {
@@ -175,8 +202,12 @@ function playRound() {
             clearInterval(timerId);
             gridItems.forEach(item => {
                 item.classList.remove('ki')
-            })
+            });
             p2Attack();
+            setTimeout(() => {
+                alert("P1 will go next");
+            }, "500")
+            kiCollected = 0;
             //if statement for p1.hp>p2.hp show p2 fallen and else if for vice versa
         }
     }
@@ -194,7 +225,7 @@ function playRound() {
             p1Image.setAttribute("src",p1.images[0]);
             p2Image.setAttribute("src",p2.images[0]);
             attackImage.setAttribute("src","/imgs/transparent.png");
-          }, "3000")
+          }, "1000")
     }
 
     function p2Attack() {
@@ -209,7 +240,7 @@ function playRound() {
             p2Image.setAttribute("src",p2.images[0]);
             p1Image.setAttribute("src",p1.images[0]);
             attackImage.setAttribute("src","/imgs/transparent.png");
-          }, "3000")
+          }, "2000")
     }
 
     let countDownTimerId = setInterval(countDown, 1000);
