@@ -94,18 +94,16 @@ function startGame() {
     prompt.style.backgroundColor = "white";
     promptText.textContent = `P1 has 15 seconds to collect ki!`;
     //will add p2turn() and try to wrap both in while loop for p1 and p2 health > 0
-    p1Turn();
-    p2Turn();
+    playRound();
 }
 
-const gridItems = document.querySelectorAll(".grid-item");
-const ki = document.querySelector(".ki");
-// let result = 0;
-let hitPosition;
-let currentTime = 15;
-let timerId = null;
-
-function p1Turn() {
+function playRound() {
+    const gridItems = document.querySelectorAll(".grid-item");
+    const ki = document.querySelector(".ki");
+    let hitPosition;
+    let currentTime = 30;
+    let timerId = null;
+    //P1 TURN
     function randomGridItem() {
         gridItems.forEach(item => {
             item.classList.remove('ki')
@@ -127,7 +125,7 @@ function p1Turn() {
     })
 
     function moveKi() {
-        timerId = setInterval(randomGridItem, 500)
+        timerId = setInterval(randomGridItem, 1000)
     }
 
     moveKi();
@@ -136,6 +134,12 @@ function p1Turn() {
         currentTime--;
         p1Ki.textContent = `${p1.ki} Ki`;
         promptText.textContent = `P1 has ${currentTime} seconds to collect ki!`;
+        if(currentTime == 15) {
+            gridItems.forEach(item => {
+                item.classList.remove('ki')
+            })
+            p1Attack();
+        }
         if(currentTime == 0) {
             clearInterval(countDownTimerId);
             clearInterval(timerId);
@@ -164,6 +168,67 @@ function p1Turn() {
     }
 
     let countDownTimerId = setInterval(countDown, 1000);
-}
 
-//create p2Turn() same as p1Turn() but update values where needed
+    //P2 TURN
+
+    // currentTime = 15;
+    // timerId = null;
+    // hitPosition = null;
+    // function randomGridItem() {
+    //     gridItems.forEach(item => {
+    //         item.classList.remove('ki')
+    //     })
+
+    //     let randomGridItem = gridItems[Math.floor(Math.random() * 9)]
+    //     randomGridItem.classList.add("ki");
+
+    //     hitPosition = randomGridItem.id
+    // }
+
+    // gridItems.forEach(item => {
+    //     item.addEventListener("mousedown", () => {
+    //         if (item.id == hitPosition) {
+    //             p1.ki++;
+    //             hitPosition = null;
+    //         }
+    //     })
+    // })
+
+    // function moveKi() {
+    //     timerId = setInterval(randomGridItem, 500)
+    // }
+
+    // moveKi();
+
+    // function countDown() {
+    //     currentTime--;
+    //     p1Ki.textContent = `${p1.ki} Ki`;
+    //     promptText.textContent = `P1 has ${currentTime} seconds to collect ki!`;
+    //     if(currentTime == 0) {
+    //         clearInterval(countDownTimerId);
+    //         clearInterval(timerId);
+    //         gridItems.forEach(item => {
+    //             item.classList.remove('ki')
+    //         })
+    //         p1Attack();
+    //     }
+    // }
+
+    // function p1Attack() {
+    //     p1Image.setAttribute("src",p1.images[1]);
+    //     attackImage.setAttribute("src","/imgs/p1blast.png");
+    //     p2Image.setAttribute("src","/imgs/explosion.png");
+    //     p2.hp -= p1.ki;
+    //     promptText.textContent = `P2 lost ${p1.ki} hp!`;
+    //     p1.ki = 0;
+    //     p1Ki.textContent = `${p1.ki} Ki`;
+    //     p2HP.textContent = `${p2.hp} HP`;
+    //     //set timeout to stop attack after 3 seconds
+    //     setTimeout(() => {
+    //         p1Image.setAttribute("src",p1.images[0]);
+    //         p2Image.setAttribute("src",p2.images[0]);
+    //         attackImage.setAttribute("src","/imgs/transparent.png");
+    //       }, "3000")
+    //       let currentTime = 15;
+    // }
+}
