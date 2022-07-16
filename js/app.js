@@ -97,7 +97,7 @@ function startGame() {
 
 const gridItems = document.querySelectorAll(".grid-item");
 const ki = document.querySelector(".ki");
-let result = 0;
+// let result = 0;
 let hitPosition;
 let currentTime = 15;
 let timerId = null;
@@ -117,7 +117,7 @@ function kiCollect() {
     gridItems.forEach(item => {
         item.addEventListener("mousedown", () => {
             if (item.id == hitPosition) {
-                result++;
+                p1.ki++;
                 hitPosition = null;
             }
         })
@@ -131,11 +131,11 @@ function kiCollect() {
 
     function countDown() {
         currentTime--;
+        p1Ki.textContent = `${p1.ki} Ki`;
         promptText.textContent = `P1 has ${currentTime} seconds to collect ki!`;
         if(currentTime == 0) {
             clearInterval(countDownTimerId);
             clearInterval(timerId);
-            //need code to remove ki picture
             gridItems.forEach(item => {
                 item.classList.remove('ki')
             })
