@@ -200,7 +200,7 @@ function fight() {
                     item.classList.remove('ki')
                 });
                 alert("P2 will go next.");
-            }, "500")
+            }, "400")
             kiCollected = 0;
             displayTime = 15;
         }
