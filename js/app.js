@@ -198,19 +198,7 @@ function fight() {
             });
             p2Attack();
             kiCollected = 0;
-            if(p1.hp > p2.hp) {
-                promptText.textContent = "P1 is the winner!"; //add restart button
-                p2Image.setAttribute("src",p2.images[2]); //not working yet
-            }
-            else if(p2.hp > p1.hp) {
-                promptText.textContent = "P2 is the winner!"; //add restart button
-                p1Image.setAttribute("src",p1.images[2]); //not working yet
-            }
-            else if(p1.hp == p2.hp) {
-                promptText.textContent = "It's a tie!";
-                p1Image.setAttribute("src",p1.images[2]); //add restart button
-                p2Image.setAttribute("src",p2.images[2]); //not working yet
-            }
+            endGame();
         }
     }
 
@@ -243,3 +231,21 @@ function fight() {
     let countDownTimerId = setInterval(countDown, 1000);
 
 }
+
+function endGame() {
+    setTimeout(() => {
+    if(p1.hp > p2.hp) {
+        promptText.textContent = "P1 is the winner!"; //add restart button
+        p2Image.setAttribute("src",p2.images[2]); //not working yet
+    }
+    else if(p2.hp > p1.hp) {
+        promptText.textContent = "P2 is the winner!"; //add restart button
+        p1Image.setAttribute("src",p1.images[2]); //not working yet
+    }
+    else if(p1.hp == p2.hp) {
+        promptText.textContent = "It's a tie!";
+        p1Image.setAttribute("src",p1.images[2]); //add restart button
+        p2Image.setAttribute("src",p2.images[2]); //not working yet
+    }
+    }, "400")
+    }
