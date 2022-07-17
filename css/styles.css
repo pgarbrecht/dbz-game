@@ -9,9 +9,10 @@ html {
 /*WELCOME SCREEN*/
 /* Popup container */
 .popup {
-    position: fixed;
-    display: inline-block;
-    margin-left: 35%;
+    position: fixed; 
+    display:inline-flex;
+    margin-left: 40%;
+    margin-right: 60%;
     margin-top: 575px;
   }
   
@@ -199,4 +200,65 @@ html {
   /*RIGHT SPECIFIC*/
   .p2-image {
     justify-content: flex-start;
+}
+
+/*RESPONSIVENESS*/
+@media only screen and (max-width: 480px) {
+    .popup {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 150%;
+    }
+    
+    .popup .popuptext {
+        width: 80vw;
+        height: 50vh;
+        color: black;
+        text-align: center;
+        margin-left: 30px;
+    }
+    .character-item {
+        height: 10vh;
+    }
+    .prompt-text, .p1-info, .p2-info {
+        font-size: 10px;
+    }
+  }
+
+@media only screen and (max-width: 400px) {
+    .popup {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 125%;
+    }
+    
+    .popup .popuptext {
+        width: 80vw;
+        height: 50vh;
+        color: black;
+        text-align: center;
+        margin-left: 30px;
+    }
+    .character-item {
+        height: 10vh;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .popup {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 120%;
+    }
+    
+    .popup .popuptext {
+        width: 80vw;
+        height: 65vh;
+        color: black;
+        text-align: center;
+        margin-left: 20px;
+    }
+    .character-item {
+        height: 10vh;
+    }
 }
