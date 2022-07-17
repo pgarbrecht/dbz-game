@@ -289,10 +289,23 @@ html {
     }
   }
 
+  @media only screen and (max-width: 600px) {
+    .popup {
+        margin-top: 120%;
+    }
+    
+    .popup .popuptext {
+        width: 80vw;
+        height: 40vh;
+        margin-left: 45px;
+    }
+    .character-item {
+        height: 10vh;
+    }
+  }
+
 @media only screen and (max-width: 480px) {
     .popup {
-        margin-left: auto;
-        margin-right: auto;
         margin-top: 150%;
     }
     
