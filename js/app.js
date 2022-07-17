@@ -95,7 +95,7 @@ function fight() {
     const ki = document.querySelector(".ki");
     let kiCollected = 0; 
     let hitPosition;
-    let currentTime = 15;
+    let currentTime = 90;
     let timerId = null;
     let displayTime = 15;
   
