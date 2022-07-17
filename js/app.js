@@ -220,7 +220,6 @@ function fight() {
         p2Image.setAttribute("src","/imgs/explosion.png");
         p2.hp -= kiCollected;
         kiCollected = 0;
-        //set timeout to stop attack after 3 seconds
         setTimeout(() => {
             p1Image.setAttribute("src",p1.images[0]);
             p2Image.setAttribute("src",p2.images[0]);
