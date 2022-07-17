@@ -105,13 +105,13 @@ html {
     justify-content:space-between;
 }
 
+.p1-info, .p2-info, .prompt {
+    height: 50px;
+}
+
 .p1-info, .p2-info {
     flex-direction: row;
     justify-content: space-evenly;
-}
-
-.prompt-text {
-    background-color: white;
 }
 
 .p1-character, .p2-character {
@@ -155,6 +155,17 @@ html {
 
 .prompt {
     justify-content: center;
+    flex-direction: row;
+}
+
+.prompt-text {
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+#play-again-btn {
+    border-radius: 10px;
 }
 
 .attack-image {
@@ -241,6 +252,13 @@ html {
     }
     .character-item {
         height: 10vh;
+    }
+    .p1-info, .p2-info, .prompt {
+        height: 30px;
+    }
+    #play-again-btn {
+        border-radius: 10px;
+        font-size: 8px;
     }
 }
 
