@@ -136,6 +136,9 @@ function fight() {
             });
             p1Attack();
             setTimeout(() => {
+                gridItems.forEach(item => { //added again to prevent odd cases of ki appearing again too soon during this set timeout
+                    item.classList.remove('ki')
+                });
             alert("P2 will go next.");
             }, "500")
             kiCollected = 0;
@@ -148,6 +151,9 @@ function fight() {
             });
             p2Attack();
             setTimeout(() => {
+                gridItems.forEach(item => {
+                    item.classList.remove('ki')
+                });
                 alert("Round 2: P1 will go first.");
             }, "500")
             kiCollected = 0;
@@ -160,6 +166,9 @@ function fight() {
             });
             p1Attack();
             setTimeout(() => {
+                gridItems.forEach(item => {
+                    item.classList.remove('ki')
+                });
                 alert("P2 will go next.");
             }, "500")
             kiCollected = 0;
@@ -172,6 +181,9 @@ function fight() {
             });
             p2Attack();
             setTimeout(() => {
+                gridItems.forEach(item => {
+                    item.classList.remove('ki')
+                });
                 alert("FINAL ROUND: P1 will go first.");
             }, "500")
             kiCollected = 0;
@@ -184,6 +196,9 @@ function fight() {
             });
             p1Attack();
             setTimeout(() => {
+                gridItems.forEach(item => {
+                    item.classList.remove('ki')
+                });
                 alert("P2 will go next.");
             }, "500")
             kiCollected = 0;
