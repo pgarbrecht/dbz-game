@@ -120,7 +120,7 @@ function fight() {
     })
 
     function moveKi() {
-        timerId = setInterval(randomGridItem, 750)
+        timerId = setInterval(randomGridItem, 500)
     }
 
     moveKi();
@@ -140,7 +140,7 @@ function fight() {
                     item.classList.remove('ki')
                 });
             alert("P2 will go next.");
-            }, "500")
+            }, "450")
             kiCollected = 0;
             displayTime = 15;
         }
@@ -155,7 +155,7 @@ function fight() {
                     item.classList.remove('ki')
                 });
                 alert("Round 2: P1 will go first.");
-            }, "500")
+            }, "450")
             kiCollected = 0;
             displayTime = 15;
         }
@@ -170,7 +170,7 @@ function fight() {
                     item.classList.remove('ki')
                 });
                 alert("P2 will go next.");
-            }, "500")
+            }, "450")
             kiCollected = 0;
             displayTime = 15;
         }
@@ -185,7 +185,7 @@ function fight() {
                     item.classList.remove('ki')
                 });
                 alert("FINAL ROUND: P1 will go first.");
-            }, "500")
+            }, "450")
             kiCollected = 0;
             displayTime = 15;
         }
@@ -200,7 +200,7 @@ function fight() {
                     item.classList.remove('ki')
                 });
                 alert("P2 will go next.");
-            }, "400")
+            }, "450")
             kiCollected = 0;
             displayTime = 15;
         }
