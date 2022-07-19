@@ -6,6 +6,11 @@ html {
     background-size: cover;
   }
 
+p {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+}
+
 /*WELCOME SCREEN*/
 /* Popup container */
 .popup {
@@ -344,8 +349,8 @@ i {
     .character-item {
         height: 10vh;
     }
-    .prompt-text, .p1-info, .p2-info {
-        font-size: 10px;
+    .p1-info, .p2-info {
+        align-items: center;
     }
     .p1-spacer, .p2-spacer {
         width: 40%;
@@ -353,7 +358,12 @@ i {
     i {
         font-size: 20px;
     }
-  }
+    .prompt {
+        justify-content: space-between;
+    }
+    p {
+        font-size: 16px;
+    }
 
 @media only screen and (max-width: 400px) {
     .popup {

@@ -8,11 +8,11 @@ function togglePlay() {
 myAudio.onplaying = function() {
   isPlaying = true;
   console.log("hi");
-  musicButton.setAttribute("class", "fa-solid fa-volume-xmark");
+  musicButton.setAttribute("class", "fa-solid fa-volume-high");
 };
 myAudio.onpause = function() {
   isPlaying = false;
-  musicButton.setAttribute("class", "fa-solid fa-volume-low");
+  musicButton.setAttribute("class", "fa-solid fa-volume-xmark");
 };
 
 // When the page loads, open the welcome popup
