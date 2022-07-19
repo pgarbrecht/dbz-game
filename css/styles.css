@@ -118,12 +118,13 @@ p {
 }
 
 .p1-info, .p2-info, .prompt {
-    height: 50px;
+    height: 60px;
 }
 
 .p1-info, .p2-info {
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
 }
 
 .p1-character, .p2-character {
@@ -175,6 +176,7 @@ i {
     color: orange;
     font-size: 30px;
     cursor: pointer;
+    padding-right: 10px;
 }
 
 .prompt-text {
@@ -230,12 +232,6 @@ i {
   /*RIGHT SPECIFIC*/
   .p2-image {
     justify-content: flex-start;
-}
-
-.music {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
 }
 
 /*RESPONSIVENESS*/
@@ -308,9 +304,6 @@ i {
     .character-item {
         height: 15vh;
     }
-    .prompt-text, .p1-info, .p2-info {
-        font-size: 15px;
-    }
     #play-again-btn {
         border-radius: 10px;
         font-size: 8px;
@@ -330,6 +323,9 @@ i {
     }
     .character-item {
         height: 10vh;
+    }
+    .p1-info, .p2-info, .prompt {
+        height: 80px;
     }
   }
 
@@ -359,10 +355,10 @@ i {
         font-size: 20px;
     }
     .prompt {
-        justify-content: space-between;
+        justify-content: center;
     }
     p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
 @media only screen and (max-width: 400px) {
@@ -372,7 +368,7 @@ i {
     }
     
     .p1-info, .p2-info, .prompt {
-        height: 30px;
+        height: 60px;
     }
     #play-again-btn {
         border-radius: 10px;

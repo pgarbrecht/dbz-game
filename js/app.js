@@ -7,7 +7,6 @@ function togglePlay() {
 };
 myAudio.onplaying = function() {
   isPlaying = true;
-  console.log("hi");
   musicButton.setAttribute("class", "fa-solid fa-volume-high");
 };
 myAudio.onpause = function() {
@@ -269,18 +268,18 @@ function endGame() {
     if(p1.hp > p2.hp) {
         // promptText.textContent = "P1 is the winner!"; //add restart button
         promptText.innerHTML = '<p>P1 wins!&nbsp;</p><button id="play-again-btn" onclick="playAgain()">Play again</button>';
-        p2Image.setAttribute("src",p2.images[2]); //not working yet
+        p2Image.setAttribute("src",p2.images[2]); 
     }
     else if(p2.hp > p1.hp) {
         // promptText.textContent = "P2 is the winner!"; //add restart button
         promptText.innerHTML = '<p>P2 wins!&nbsp;</p><button id="play-again-btn" onclick="playAgain()">Play again</button>';
-        p1Image.setAttribute("src",p1.images[2]); //not working yet
+        p1Image.setAttribute("src",p1.images[2]); 
     }
     else if(p1.hp == p2.hp) {
         // promptText.textContent = "It's a tie!";
         promptText.innerHTML = '<p>Tie game!&nbsp;</p><button id="play-again-btn" onclick="playAgain()">Play again</button>';
-        p1Image.setAttribute("src",p1.images[2]); //add restart button
-        p2Image.setAttribute("src",p2.images[2]); //not working yet
+        p1Image.setAttribute("src",p1.images[2]); 
+        p2Image.setAttribute("src",p2.images[2]); 
     }
     }, "400")
 }
