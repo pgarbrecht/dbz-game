@@ -25,6 +25,7 @@ p {
 .popup .popuptext {
     visibility: hidden;
     width: 80vw;
+    height: 60vh;
     background-color: orange;
     color: black;
     text-align: center;
@@ -262,10 +263,23 @@ i {
         margin-top: 750px;
     }
     .choose-character {
-        width: 75%;
+        width: 65%;
     }
     .instructions {
         font-size: 16px;
+        margin: auto;
+    }
+    .character-item {
+        height: 190px;
+    }
+    .popup .popuptext {
+        height: 62vh;
+    }
+}
+
+@media only screen and (min-width: 850px) and (max-width: 1000px){
+    .character-item {
+        height: 175px;
     }
 }
 
