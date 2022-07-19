@@ -163,6 +163,13 @@ html {
 .prompt {
     justify-content: center;
     flex-direction: row;
+    align-items: center;
+}
+
+i {
+    color: orange;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 .prompt-text {
@@ -218,6 +225,12 @@ html {
   /*RIGHT SPECIFIC*/
   .p2-image {
     justify-content: flex-start;
+}
+
+.music {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 /*RESPONSIVENESS*/
@@ -336,6 +349,9 @@ html {
     }
     .p1-spacer, .p2-spacer {
         width: 40%;
+    }
+    i {
+        font-size: 20px;
     }
   }
 

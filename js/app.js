@@ -1,3 +1,20 @@
+//Toggle music on or off
+const myAudio = document.getElementById("myAudio");
+let musicButton = document.querySelector("i");
+let isPlaying = false;
+function togglePlay() {
+  isPlaying ? myAudio.pause() : myAudio.play();
+};
+myAudio.onplaying = function() {
+  isPlaying = true;
+  console.log("hi");
+  musicButton.setAttribute("class", "fa-solid fa-volume-xmark");
+};
+myAudio.onpause = function() {
+  isPlaying = false;
+  musicButton.setAttribute("class", "fa-solid fa-volume-low");
+};
+
 // When the page loads, open the welcome popup
 var popup = document.getElementById("welcomePopup"); 
 window.onload = function welcome() {
