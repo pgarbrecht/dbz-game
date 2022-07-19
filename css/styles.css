@@ -18,7 +18,7 @@ p {
     display:inline-flex;
     margin-left: 15%;
     margin-right: 85%;
-    margin-top: 700px;
+    margin-top: 750px;
   }
   
 /* The actual popup (appears on top) */
@@ -259,7 +259,7 @@ i {
         display:inline-flex;
         margin-left: 15%;
         margin-right: 85%;
-        margin-top: 700px;
+        margin-top: 750px;
     }
     .choose-character {
         width: 75%;
@@ -274,15 +274,18 @@ i {
         margin-left: auto;
         margin-right: auto;
         /* margin-top: 90%; replaced this with pixel offset to center it vertically, will switch back if doesn't work on github pages*/
-        margin-top: 700px;
+        margin-top: 750px;
     }
     
     .popup .popuptext {
         width: 80vw;
-        height: 65vh;
+        /* height: vh; */
         text-align: center;
         margin-left: 65px;
         font-size: 20px;
+    }
+    .character-item {
+        height: 175px;
     }
 }
 
@@ -291,12 +294,12 @@ i {
         margin-left: auto;
         margin-right: auto;
         /* margin-top: 110%; */
-        margin-top: 600px;
+        margin-top: 700px;
     }
     
     .popup .popuptext {
         width: 80vw;
-        height: 45vh;
+        height: 51vh;
         text-align: center;
         margin-left: 55px;
         font-size: 20px;
@@ -313,12 +316,12 @@ i {
   @media only screen and (max-width: 600px) {
     .popup {
         /* margin-top: 120%; */
-        margin-top: 600px;
+        margin-top: 650px;
     }
     
     .popup .popuptext {
         width: 80vw;
-        height: 40vh;
+        height: 45vh;
         margin-left: 45px;
     }
     .character-item {
@@ -337,7 +340,7 @@ i {
     
     .popup .popuptext {
         width: 80vw;
-        height: 50vh;
+        height: 40vh;
         color: black;
         text-align: center;
         margin-left: 30px;
@@ -366,7 +369,10 @@ i {
         /* margin-top: 125%; */
         margin-top: 500px;
     }
-    
+    .popup .popuptext {
+        height: 45vh;
+        margin-left: 25px;
+    }
     .p1-info, .p2-info, .prompt {
         height: 60px;
     }
@@ -381,7 +387,7 @@ i {
         margin-top: 400px;
     }
     .popup .popuptext {
-        height: 65vh;
+        height: 55vh;
         margin-left: 20px;
     }
 }
